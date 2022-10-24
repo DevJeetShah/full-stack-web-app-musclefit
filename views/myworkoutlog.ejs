@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body class="myworkoutlogbody"> 
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+
+        <div class="text-center navbar-brand ms-2 m-auto">
+
+            <h1 class="font8 mb-0">MuscleFit</h1>
+        
+            </div>
+       
+
+            <div class="navbar-brand">  
+        
+                <a class="btn btn-primary" href="/welcome">Home</a>
+    
+            </div>
+    
+
+        <div class="navbar-brand">  
+        
+            <a class="btn btn-danger" href="/logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+
+
+
+    <div class="fitnessclass container d-flex flex-row justify-content-center justify-content-md-around align-items-center flex-wrap flex-xl-nowrap">
+          
+        <form action="/myworkoutlog/post" method="POST" class="text-center font1" name="workoutlogform">
+
+               
+                <select class="btn btn-secondary" name="workoutmuscle" id="workoutmuscle" onchange="selectmuscle()">
+                    <option value="">Select Muscle Group</option>
+                    <option value="chest">Chest</option>
+                    <option value="shoulders">Shoulders</option>
+                    <option value="legs">Legs</option>
+                    <option value="biceps">Biceps</option>
+                    <option value="triceps">Triceps</option>
+                    <option value="abs">Abs</option>
+                    <option value="back muscles">Back muscles</option>
+                    <option value="cardio">Cardio</option>
+                </select>   
+                <br><br>
+
+    <!--                 IF the selected option above is chest display everything below otherwise hide it -->
+                <div class="workout1 hidden1">
+            
+                <select class="btn btn-secondary" name="exercisename" id="chest" required>
+                    <option value="">Select Chest Exercise</option>
+                    <option value="Barbell Bench Press">Barbell Bench Press</option>
+                    <option value="Incline Barbell Bench Press">Incline Barbell Bench Press</option>
+                    <option value="Dumbbell Bench Press">Dumbbell Bench Press</option>    
+                    <option value="Push Ups">Push Ups</option>
+                    <option value="Bent Arm Dumbbell Pullover">Bent Arm Dumbbell Pullover</option>
+                    <option value="Cable Crossover">Cable Crossover</option>
+                    <option value="Close Grip Barbell Bench Press">Close Grip Barbell Bench Press</option>
+                    <option value="Chest Dips">Chest Dips</option>
+                    <option value="Hammer Grip Incline Dumbbell Bench Press">Hammer Grip Incline Dumbbell Bench Press</option>
+                    <option value="Incline Dumbbell Fly">Incline Dumbbell Fly</option>
+                    <option value="Straight Arm Dumbbell Pullover">Straight Arm Dumbbell Pullover</option>
+                    <option value="Wide Grip Decline Barbell Pullover">Wide Grip Decline Barbell Pullover</option>
+                </select>   
+                <br><br>
+                </div>
+
+                <div class="workout2 hidden1">
+               
+                <select class="btn btn-secondary" name="exercisename" id="shoulders" required>
+                    <option value="">Select Shoulder Exercise</option>
+                    <option value="Dumbell Shoulder Press">Dumbell Shoulder Press</option>
+                    <option value="Lateral Dumbbell Raises">Lateral Dumbbell Raises</option>
+                    <option value="Face Pull">Face Pull</option>    
+                    <option value="Arnold Press">Arnold Press</option>
+                    <option value="Barbell Front Raises">Barbell Front Raises</option>
+                    <option value="Barbell Upright Rows">Barbell Upright Rows</option>
+                    <option value="Cable Front Raises">Cable Front Raises</option>
+                    <option value="Dumbbell Cuban Press">Dumbbell Cuban Press</option>
+                    <option value="One Arm Dumbbell Shoulder Press">One Arm Dumbbell Shoulder Press</option>
+                    <option value="Seated Bent Over Rear Delt Raise">Seated Bent Over Rear Delt Raise</option>
+                    <option value="Cable Shoulder Press">Cable Shoulder Press</option>
+                    <option value="Cable Upright Rows">Cable Upright Rows</option>
+                </select>
+                <br><br>
+                </div>
+                
+                <div class="workout3 hidden1">
+
+                    <select class="btn btn-secondary" name="exercisename" id="legs" required>
+                        <option value="">Select Legs Exercise</option>
+                        <option value="Barbell Bench Squat">Barbell Bench Squat</option>
+                        <option value="Barbell Deadlift">Barbell Deadlift</option>
+                        <option value="Barbell Lying Lifting">Barbell Lying Lifting</option>    
+                        <option value="Seated Leg Curl">Seated Leg Curl</option>
+                        <option value="Dumbell Rear Lunges">Dumbell Rear Lunges</option>
+                        <option value="Leg Press">Leg Press</option>
+                        <option value="Calf Press on Leg Press">Calf Press on Leg Press</option>
+                        <option value="Seated Calf Raise">Seated Calf Raise</option>
+                        <option value="Lying Leg Curl">Lying Leg Curl</option>
+                    </select>
+                    <br><br>
+                    </div>
+
+                <div class="workout4 hidden1">
+
+                    <select class="btn btn-secondary" name="exercisename" id="biceps" required>
+                        <option value="">Select Biceps Exercise</option>
+                        <option value="Barbell Curl">Barbell Curl</option>
+                        <option value="Barbell Drag Curl">Barbell Drag Curl</option>
+                        <option value="Barbell Preacher Curl">Barbell Preacher Curl</option>    
+                        <option value="Barbell Close Grip Standing Curl">Barbell Close Grip Standing Curl</option>
+                        <option value="Cable Curl">Cable Curl</option>
+                        <option value="Dumbbell Biceps Curls">Dumbbell Biceps Curls</option>
+                        <option value="Dumbbell Alternate Biceps Curl">Dumbbell Alternate Biceps Curl</option>
+                        <option value="Dumbbell Hammer Curl">Dumbbell Hammer Curl</option>
+                        <option value="Dummbell incline Curl">Dummbell incline Curl</option>
+                        <option value="Barbell Seated Preacher Curl">Barbell Seated Preacher Curl</option>
+                        <option value="EZ Babell Close Grip Curl">EZ Babell Close Grip Curl</option>
+
+                    </select>
+                    <br><br>
+                    </div>
+                        
+                <div class="workout5 hidden1">
+
+                    <select class="btn btn-secondary" name="exercisename" id="triceps" required>
+                        <option value="">Select Triceps Exercise</option>
+                        <option value="Assisted Triceps Dips">Assisted Triceps Dips</option>
+                        <option value="Barbell Close Grip Bench Press">Barbell Close Grip Bench Press</option>
+                        <option value="Barbell Incline Reverse-grip Press">Barbell Incline Reverse-grip Press</option>    
+                        <option value="Barbell Lying Triceps Extension">Barbell Lying Triceps Extension</option>
+                        <option value="Bench Dip">Bench Dip</option>
+                        <option value="Cable Overhead Tricpes Extension">Cable Overhead Tricpes Extension</option>
+                        <option value="Cable Pushdown">Cable Pushdown</option>
+                    </select>
+                    <br><br>
+                    </div>
+
+                <div class="workout6 hidden1">
+
+                    <select class="btn btn-secondary" name="exercisename" id="abs" required>
+                        <option value="">Select Abs Exercise</option>
+                        <option value="Air Bike">Air Bike</option>
+                        <option value="Bent Knee Hip Raise">Bent Knee Hip Raise</option>
+                        <option value="Cross Body Crunch">Cross Body Crunch</option>    
+                        <option value="Crunches">Crunches</option>
+                        <option value="Sit Ups">Sit Ups</option>
+                        <option value="Side Plank">Side Plank</option>
+                        <option value="Plank">Plank</option>    
+                        <option value="Ab Wheel Rollout">Ab Wheel Rollout</option>
+                    </select>
+                    <br><br>
+                    </div>
+
+                <div class="workout7 hidden1">
+
+                    <select class="btn btn-secondary" name="exercisename" id="backMuscles" required>
+                        <option value="">Select Back Muscles Exercise</option>
+                        <option value="Barbell Bent Over Row">Barbell Bent Over Row</option>
+                        <option value="Chin Up">Chin Up</option>
+                        <option value="Pull Ups">Pull Ups</option>    
+                        <option value="Barbell Incline Row">Barbell Incline Row</option>
+                        <option value="Cable Bar Lateral Pulldown">Cable Bar Lateral Pulldown</option>
+                        <option value="Cable Rear Pulldown">Cable Rear Pulldown</option>
+                        <option value="Dumbbell Bent Over Row">Dumbbell Bent Over Row</option>
+                    </select>
+                    <br><br>
+                    </div>
+
+                <div class="workout8 hidden1">
+
+                    <select class="btn btn-secondary" name="exercisename" id="cardio" required>
+                        <option value="">Select Cardio Exercise</option>
+                        <option value="High Knee Skips">High Knee Skips</option>
+                        <option value="Jump Rope">Jump Rope</option>
+                        <option value="Elliptical Machine Walk">Elliptical Machine Walk</option>    
+                        <option value="Jack Press">Jack Press</option>
+                        <option value="Running">Running</option>
+                        <option value="Stationary Bike Walk">Stationary Bike Walk</option>
+                        <option value="Walking">Walking</option>    
+    
+                    </select>
+                    <br><br>
+                    </div>
+
+                <div class="wrs hidden1">
+
+                <select class="btn btn-secondary" name="weight" id="weight" required>
+                    <option value="">Select Weight</option>
+                    <option value="5">5 lbs</option>
+                    <option value="7.5">7.5 lbs</option>
+                    <option value="10">10 lbs</option>
+                    <option value="10.5">10.5 lbs</option>
+                    <option value="11">11 lbs</option>
+                    <option value="11.5">11.5 lbs</option>
+                    <option value="12">12 lbs</option>
+                    <option value="12.5">12.5 lbs</option>
+                    <option value="13">13 lbs</option>
+                    <option value="13.5">13.5 lbs</option>
+                    <option value="14">14 lbs</option>
+                    <option value="14.5">14.5 lbs</option>
+                    <option value="15">15 lbs</option>
+                    <option value="15.5">15.5 lbs</option>
+                    <option value="16">16 lbs</option>
+                    <option value="16.5">16.5 lbs</option>
+                    <option value="17">17 lbs</option>
+                    <option value="17.5">17.5 lbs</option>
+                    <option value="18">18 lbs</option>
+                    <option value="18.5">18.5 lbs</option>
+                    <option value="19">19 lbs</option>
+                    <option value="19.5">19.5 lbs</option>
+                    <option value="20">20 lbs</option>
+                    <option value="20.5">20.5 lbs</option>
+                    <option value="21">21 lbs</option>
+                    <option value="21.5">21.5 lbs</option>
+                    <option value="22">22 lbs</option>
+                    <option value="22.5">22.5 lbs</option>
+                    <option value="23">23 lbs</option>
+                    <option value="23.5">23.5 lbs</option>
+                    <option value="24">24 lbs</option>
+                    <option value="24.5">24.5 lbs</option>
+                    <option value="25">25 lbs</option>
+                    <option value="25.5">25.5 lbs</option>
+                    <option value="26">26 lbs</option>
+                    <option value="26.5">26.5 lbs</option>
+                    <option value="27">27 lbs</option>
+                    <option value="27.5">27.5 lbs</option>
+                    <option value="28">28 lbs</option>
+                    <option value="28.5">28.5 lbs</option>
+                    <option value="29">29 lbs</option>
+                    <option value="29.5">29.5 lbs</option>
+                    <option value="30">30 lbs</option>
+                    <option value="30.5">30.5 lbs</option>
+                    <option value="31">31 lbs</option>
+                    <option value="31.5">31.5 lbs</option>
+                    <option value="32">32 lbs</option>
+                    <option value="32.5">32.5 lbs</option>
+                    <option value="33">33 lbs</option>
+                    <option value="33.5">33.5 lbs</option>
+                    <option value="34">34 lbs</option>
+                    <option value="34.5">34.5 lbs</option>
+                    <option value="35">35 lbs</option>
+                    <option value="35.5">35.5 lbs</option>
+                    <option value="36">36 lbs</option>
+                    <option value="36.5">36.5 lbs</option>
+                    <option value="37">37 lbs</option>
+                    <option value="37.5">37.5 lbs</option>
+                    <option value="38">38 lbs</option>
+                    <option value="38.5">38.5 lbs</option>
+                    <option value="39">39 lbs</option>
+                    <option value="39.5">39.5 lbs</option>     
+                    <option value="40">40 lbs</option>                        
+                    
+                </select>
+                <br><br>
+                </div>
+
+            <div class="wrs hidden1">
+   
+                <select class="btn btn-secondary" name="rep" id="rep" required>
+                    <option value="">Select Reps</option>
+                    <option value="1">1</option>  
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>  
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>  
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>  
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>  
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>  
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>  
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>  
+                    <option value="30">30</option>
+                </select>
+                <br><br>
+            </div>
+
+            <div class="wrs hidden1">
+                <select class="btn btn-secondary" name="set" id="set" required>
+                <option value="">Select Set</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                </select>
+                <br><br>
+            </div>
+
+
+                <input class="btn btn-success mb-5" type="submit" value="SUBMIT"> 
+                
+
+        </form> 
+
+
+
+        <%  if(logItems.length === 0) { %>
+
+            <div>
+                <h3 class="font3">No workout has been logged yet!</h3>
+            </div>
+
+
+        <% } else { %>
+        
+            <div class="workoutlog d-flex flex-column justify-content-center justify-content-md-around align-items-center">
+
+                <div>
+                    <h2 class="text-center font1">Recent logs</h2>
+                </div>
+    
+                <div id="" style="overflow:scroll;" class="bg-success logdivwrapper">
+        
+                
+                    <div class="d-flex justify-content-center align-items-center mx-5 bg-success">
+                        
+                    
+                        <div class="mb-2 bg-success font1">
+                   
+                            <% logItems.forEach( el => { %>
+                                <h6>A new workout has been logged!</h6>
+                                <h6>Date of workout: <%= el.createdAt %></h6>
+                                <h6>Body Muscle: <%= el.workoutMuscle %></h6>
+                                <h6>Exercise: <%= el.workoutExercise[0] %> <%= el.workoutExercise[1] %> <%= el.workoutExercise[2] %> <%= el.workoutExercise[3] %> <%= el.workoutExercise[4] %> <%= el.workoutExercise[5] %> <%= el.workoutExercise[6] %> <%= el.workoutExercise[7] %> <%= el.workoutExercise[8] %> <%= el.workoutExercise[9] %> <%= el.workoutExercise[10] %> <%= el.workoutExercise[11] %> </h6>
+                                <h6>Weight: <%= el.weight %> lbs</h6>
+                                <h6>Reps: <%= el.reps %></h6>
+                                <h6>Sets: <%= el.sets %></h6>
+                                <a href="/myworkoutlog/delete/<%= el._id %>" class="btn btn-danger btn-sm mb-2">delete log</a>
+                                <% })%> 
+                        </div>
+                
+                    </div>
+        
+        <% } %> 
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+   
+
+    
+
+    
+    </div>
+
+
+
+
+    <script src="\js\main.js"></script>
+    
+</body>
+</html>
+

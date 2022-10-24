@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+
+</head>
+<body class="editmealplanbody">
+    
+
+<!--         <span class='btn btn-danger del'> Delete </span> -->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top justify-content-between">
+  
+     
+    <div class="text-center navbar-brand ms-3 m-auto">
+      <h1 class="font8 mb-0">MuscleFit</h1>
+  
+    </div>
+  
+    <div class="navbar-brand text-center">
+        <a href="/welcome" class="btn btn-primary" >Home</a>
+    </div>
+
+    <div class="navbar-brand text-center">
+        <a class="btn btn-danger" href="/logout">Logout</a>
+    </div>
+  
+  </nav>
+  
+
+
+
+
+            <div class="table-responsive d-flex flex-column justify-content-center align-items-center">
+                
+                <h3 class="text-center font7 text-light px-3 py-2 d-none d-xl-block">Meal Plan Editor</h3>
+
+                <div class="d-none d-xl-block">
+
+                    <table class="table table-striped table-success table-hover">
+                        <thead>
+                        <tr class="">
+                            <th class="" scope="col">#</th>
+                            <th scope="col">Meal Type</th>
+                            <th scope="col">Meal Name</th>
+                            <th scope="col">Calories</th>
+                            <th scope="col">Total Protein</th>
+                            <th scope="col">Total Fat</th>
+                            <th scope="col">Total Carbs</th>
+                        </tr>
+                        </thead>
+
+                        <% mealPlanItems.forEach( el => { %>
+
+                            <tbody id="mealPlanItemsBody">
+                                
+                                    <tr class="mealPlanItems table-striped" data-id='<%=el._id%>'>
+                                        <th scope="row"><%= mealPlanItems.indexOf(el) + 1 %></th>
+                                        <td class="">
+                                            <input type="text" value="<%= el.mealType %>" name="mealType">
+                                            
+                                        </td>
+                                        <td>
+                                            <input type="text" value="<%= el.mealName %>" name="mealName">
+                                            
+                                        </td>
+                                        <td>
+                                            <input type="text" value="<%= el.calories %>" name="calories">
+                                            
+                                        </td>
+                                        <td>
+                                            <input type="text" value="<%= el.totalProtein %>" name="totalProtein">
+                                            
+                                        </td>
+                                        <td>
+                                            <input type="text" value="<%= el.totalFat %>" name="totalFat">
+                                            
+                                        </td>
+                                        <td>
+                                            <input type="text" value="<%= el.totalCarbs %>" name="totalCarbs">
+
+                                        </td>
+                                    </tr> 
+                               
+                            </tbody>
+
+                            
+
+                        <% })%>     
+                    </table>
+
+                </div>
+
+
+        
+                    
+                    <div class="text-center d-none d-xl-block">
+
+                        <span id="confirm" class="btn btn-secondary">Confirm changes </span>
+
+                      
+
+                    </div>
+                    
+                       
+                    <div class="container d-block d-xl-none font1 text-warning">
+                        <div class="editorwarning d-flex flex-column justify-content-center align-items-center text-center">
+                            
+                            <h2>Meal Plan Editor is only available in desktop view!</h2>
+                        </div>
+                        
+                    </div>              
+                    
+                                          
+            </div>
+
+
+            <script src="\js\main.js"></script>
+
+
+
+</body>
+</html>

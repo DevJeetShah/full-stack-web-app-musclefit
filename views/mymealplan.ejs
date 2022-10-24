@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</body>
+
+</head>
+<body class="mymealplanbody">
+    
+    <% if(mealPlanItems.length == 0) {%>
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top justify-content-around">
+  
+            <div class="navbar-brand me-0">  
+
+             </div>
+                    
+            <div class="text-center navbar-brand me-0">
+
+              <h1 class="font8 mb-0">MuscleFit</h1>
+          
+            </div>
+          
+            <div class="navbar-brand text-center me-0">
+                <a href="/welcome" class="btn btn-primary" >Home</a>
+            </div>
+          
+        </nav>
+
+          <div class="text-center font1 my-5">
+            <button class="btn btn-success btn-sm" onclick="addTextInput(); showsubmit();">Add a meal plan item</button>
+          </div>
+          
+
+        <div class="font1 mealplancreateform">
+
+            
+            <form action="/mymealplan/create" method="POST">
+                <div id="mealplanfields" class="text-light"></div>
+                <div class="submitbuttonclass text-center" style="display: none;">
+                    <button type="submit" class="btn btn-secondary btn-sm" value="Upload">Submit</button>
+                </div>
+
+            </form>
+    
+        </div>
+
+    <%} else {%>
+        
+             
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+
+                <div class="text-center navbar-brand ms-2 m-auto">
+
+                    <h1 class="font8 mb-0">MuscleFit</h1>
+                
+                    </div>
+        <button class="navbar-toggler me-2" type="button"  data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false"  aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        
+        </button>
+        <div class="collapse navbar-collapse" id="toggleMobileMenu">
+        
+            <ul class="navbar-nav ms-auto text-center">
+                <li>
+                    <a class="btn btn-success me-2 mt-1" href="/mymealplan/editor">Edit Meal Plan</a>
+                </li>
+                <li>
+                    <a class="btn btn-danger me-2 mt-1" href="/mymealplan/delete">Delete Meal Plan</a>
+                </li>
+                <li>
+                    <a href="/welcome" class="btn btn-primary me-2 mt-1" >Home</a>
+                </li>
+                <li>
+                    <a class="btn btn-danger me-2 mt-1" href="/logout">Logout</a>
+                </li>
+            </ul>
+            
+        </div>
+    </nav>
+
+
+        
+            <div class="d-none d-md-block">
+
+                <div class="mealplantable container table-responsive d-flex flex-column justify-content-center align-items-center">
+                    <h3 class="text-center text-light font7">My meal plan</h3>
+                    <table class="table table-striped table-success table-hover text-center font1">
+                            <thead class="">
+                            <tr class="">
+                                <th class="" scope="col">#</th>
+                                <th scope="col">Meal Type</th>
+                                <th scope="col">Meal Name</th>
+                                <th scope="col">Calories</th>
+                                <th scope="col">Total Protein</th>
+                                <th scope="col">Total Fat</th>
+                                <th scope="col">Total Carbs</th>
+                            </tr>
+                            </thead>
+    
+                            <% mealPlanItems.forEach( el => { %>
+    
+                                <tbody class="">
+                                    <tr class="mealPlanItem table-striped" data-id='<%=el._id%>'>
+                                    <th scope="row"><%= mealPlanItems.indexOf(el) + 1 %></th>
+                                    <td><%= el.mealType %></td>
+                                    <td><%= el.mealName %></td>
+                                    <td><%= el.calories %></td>
+                                    <td><%= el.totalProtein %></td>
+                                    <td><%= el.totalFat %></td>
+                                    <td><%= el.totalCarbs %></td>
+                                    </tr>         
+                                </tbody>
+    
+                            <% })%>     
+    
+                            
+                            <tbody>
+                                <tr class="" data-id=''>
+                                <th scope="row"></th>
+                                <td>Macros</td>
+                                <td>Grand Total:</td>                         
+                                <td><%= mealPlanItems.reduce((a, e) => a + e.calories,0) %></td>
+                                <td><%= mealPlanItems.reduce((a, e) => a + e.totalProtein,0) %></td>
+                                <td><%= mealPlanItems.reduce((a, e) => a + e.totalFat,0) %></td>
+                                <td><%= mealPlanItems.reduce((a, e) => a + e.totalCarbs,0) %></td>
+                                </tr>         
+                            </tbody>
+    
+                            
+                    </table>
+                </div>
+
+            </div>
+
+
+
+            <div class="mealplanmobileview mt-2">
+
+                <h3 class="text-center text-light font7 d-sm-block d-md-none">My meal plan</h3>
+                <% mealPlanItems.forEach( el => { %>
+
+                    <div class="card border-2 mb-2 mx-5 bg-success text-light font1 d-sm-block d-md-none">
+                        <ul class="list-group list-group-flush bg-success">
+                            <div class="card-header text-center font1">
+                                Meal plan item #<%= mealPlanItems.indexOf(el) + 1 %>
+                              </div> 
+                          <li class="list-group-item bg-success text-light"> <span>Meal Type: </span> <%= el.mealType %></li>
+                          <li class="list-group-item bg-success text-light">Meal Name: <%= el.mealName %></li>
+                          <li class="list-group-item bg-success text-light">Calories: <%= el.calories %></li>
+                          <li class="list-group-item bg-success text-light">Total Protein: <%= el.totalProtein %></li>
+                          <li class="list-group-item bg-success text-light">Total Fat: <%= el.totalProtein %></li>
+                          <li class="list-group-item bg-success text-light">Total Carbs: <%= el.totalCarbs %></li>
+    
+                        </ul>
+                      </div>
+    
+                <% })%> 
+    
+                <div class="card border-2 mb-2 mx-5 bg-success font1 d-sm-block d-md-none">
+                    <ul class="list-group list-group-flush bg-success">
+                        <div class="card-header text-center text-dark fw-bold">
+                            Grand Total of Macros
+                          </div> 
+                      <li class="list-group-item bg-success text-light">Total Calories: <%= mealPlanItems.reduce((a, e) => a + e.calories,0) %></li>
+                      <li class="list-group-item bg-success text-light">Total Protein: <%= mealPlanItems.reduce((a, e) => a + e.totalProtein,0) %> </li>
+                      <li class="list-group-item bg-success text-light">Total Fat: <%= mealPlanItems.reduce((a, e) => a + e.totalFat,0) %></li>
+                      <li class="list-group-item bg-success text-light">Total Carbs: <%= mealPlanItems.reduce((a, e) => a + e.totalCarbs,0) %></li>
+    
+                    </ul>
+                  </div>
+            </div>
+
+
+
+
+
+
+    <%} %>
+
+                
+
+                    <script src="\js\main.js"></script>
+
+</body>
+
+</html>

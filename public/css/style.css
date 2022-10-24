@@ -1,0 +1,295 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
+
+
+.font1{
+    font-family: 'Roboto Mono';
+}
+
+
+.font2{
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+
+.font3{
+    font-family: 'Roboto Serif', serif;
+
+    }
+
+.font4{
+
+    font-family: 'Merriweather', serif;
+
+}
+    
+.font6{
+ 
+    font-family: 'Roboto', sans-serif;
+
+    }
+
+.font7{
+    font-family: 'Roboto Slab', serif;
+}
+
+.font8{
+    font-family: 'Playfair Display', serif;
+}
+
+
+
+.fitnessclass{
+
+    height: 88vh;
+}
+
+.hidden1{
+    display: none;
+}
+
+
+
+table{
+
+    border: 5px solid;
+}
+
+
+
+.mymealplanbody{
+
+    background-image: url(/images/8.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+    
+    
+.mealplantable{
+
+    height: 88vh;
+}
+
+.indexpage{
+    height: 85vh;
+}
+
+.welcomebody{
+
+    background-image: url(/images/1.jpg);
+    background-size: cover;
+}
+
+
+.indexbody{
+
+    background-image: url(/images/3.jpg);
+    background-position: 0% 30%;
+}
+
+.loginbody{
+    background-image: url(/images/3.jpg);
+    background-position: 0% 30%;
+
+  }
+
+  .signupbody{
+    background-image: url(/images/3.jpg);
+    background-position: 0% 30%;
+  
+  }
+
+  .signupsection{
+    height: 88.3vh;
+  }
+
+
+  .loginmain{
+
+    height: 88.3vh;
+
+  }
+
+
+.editmealplanbody{
+
+    background-image: url(/images/4.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.editorwarning{
+
+    height: 88vh;
+}
+
+.myworkoutlogbody{
+
+    background-image: url(/images/7.jpg);
+    background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+
+}
+
+/* background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+background-position: 32% 8%; */
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: linear-gradient(); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+::-webkit-scrollbar-corner {background-color: transparent;}
+
+
+.logdivwrapper{
+
+    border: 5px solid darkgreen;
+    height:400px;
+    width: 500px;
+}
+
+
+#mealplanfields div label{
+
+    font-size:medium;
+}
+
+#mealplanfields div input[type = "text"]{
+
+    width: 180px;
+}
+
+
+
+
+@media screen and (max-width: 576px){
+
+    .logdivwrapper{
+
+        height: 400px;
+        width: 380px;
+    }
+
+/*     .workoutlog{
+
+        height: 400px;
+        width: 500px;
+    }
+ */
+    
+}
+
+.mealplancreateform{
+    margin-left: 2%;
+
+}
+
+.submitbuttonclass{
+    margin-right: 2%;
+}
+
+
+
+@media screen and (min-width: 1400px) and (max-width: 1900px){
+
+    #mealplanfields div input[type = "text"]{
+        width: 100%;
+        
+    }
+
+    .mealplancreateform{
+
+        margin-left: 35%;
+        margin-right: 35%;
+        }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1399px){
+
+
+    #mealplanfields div input[type = "text"]{
+        width: 100%;
+        
+    }
+
+    .mealplancreateform{
+
+        margin-left: 30%;
+        margin-right: 30%;
+        }
+
+}
+
+
+@media screen and (max-width: 767px){
+
+    #mealplanfields div input[type = "text"]{
+        width: 100%;
+        
+    }
+
+    .mealplancreateform{
+
+        margin-left: 15%;
+        margin-right: 15%;
+        }
+
+        .indexbody{
+
+            background-image: url(/images/14small.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .loginbody{
+
+            background-image: url(/images/14small.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .signupbody{
+
+            background-image: url(/images/14small.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+
+
+}
+
