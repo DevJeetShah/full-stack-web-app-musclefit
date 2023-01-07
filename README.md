@@ -1,6 +1,8 @@
 # MuscleFit App
 MuscleFit is a full stack web application for fitness enthusiasts to craft their meal plan with macros and log their workout
 
+Live site: https://musclefit.cyclic.app/
+
 ![](public/images/muscleFitAppGif.gif)
 
 ## How It's Made:
