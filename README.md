@@ -3,6 +3,10 @@ MuscleFit is a full stack web application for fitness enthusiasts to craft their
 
 Live site: https://musclefit.cyclic.app/
 
+Demo Account Credentials:
+email: demotest@test.com
+password: demotest
+
 ![](public/images/muscleFitAppGif.gif)
 
 ## How It's Made:
